@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aswcloud-comm-database-deployment
+  labels:
+    app: aswcloud-comm-database
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: aswcloud-comm-database
+  template:
+    metadata:
+      labels:
+        app: aswcloud-comm-database
+    spec:
+      volumes:
+      - name: pvs-aswcloud-comm-database
+        persistentVolumeClaim:
+          claimName: pvc-nfs-dynamic-1g-aswcloud-comm-database
+
+      containers:
+      - name: database
+        image: mongo
+        volumeMounts:
+        - mountPath: "/data/db"
+          name: pvs-aswcloud-comm-database
+        env:
+        - name: MONGO_INITDB_DATABASE
+          value: "servercomm"
+        - name: MONGO_INITDB_ROOT_USERNAME
+          value: "root"
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          value: "example"
+        ports:
+        - containerPort: 27017

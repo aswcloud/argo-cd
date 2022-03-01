@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-nfs-dynamic-1g-aswcloud-comm-database
+spec:
+  volumeMode: Filesystem
+  storageClassName: dod-nfs-storageclass # SAME NAME AS THE STORAGECLASS
+  accessModes:
+    - ReadWriteMany #  must be the same as PersistentVolume
+  resources:
+    requests:
+      storage: 3Gi
