@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: aoikazto/aswcloud-server:1.0.23
+          image: aoikazto/aswcloud-server:1.0.24
           ports:
             - containerPort: 8088
           env:
