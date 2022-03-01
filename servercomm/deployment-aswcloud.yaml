@@ -5,7 +5,7 @@ metadata:
   labels:
     app: aswcloud-comm
 spec:
-  replicas: 1 
+  replicas: 1
   selector:
     matchLabels:
       app: aswcloud-comm
@@ -15,20 +15,20 @@ spec:
         app: aswcloud-comm
     spec:
       containers:
-      - name: server
-        image: aoikazto/aswcloud-server:1.0.7
-        ports:
-        - containerPort: 8088
-        env:
-        - name: MONGODB_SERVER
-          value: "aswcloud-comm-database-service.aswcloud.svc.cluster.local"
-        - name: MONGODB_PORT
-          value: "27017"
-        - name: MONGODB_DATABASE
-          value: "servercomm"
-        - name: JWT_SECRET_TOKEN
-          value: "test"
-        - name: MONGODB_ID
-          value: "root"
-        - name: MONGODB_PW
-          value: "example"
+        - name: server
+          image: aoikazto/aswcloud-server:1.0.20
+          ports:
+            - containerPort: 8088
+          env:
+            - name: MONGODB_SERVER
+              value: aswcloud-comm-database-service.aswcloud.svc.cluster.local
+            - name: MONGODB_PORT
+              value: '27017'
+            - name: MONGODB_DATABASE
+              value: servercomm
+            - name: JWT_SECRET_TOKEN
+              value: test
+            - name: MONGODB_ID
+              value: root
+            - name: MONGODB_PW
+              value: example
