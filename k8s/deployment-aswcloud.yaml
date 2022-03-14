@@ -14,19 +14,9 @@ spec:
       labels:
         app: aswcloud-k8s
     spec:
+      serviceAccountName: aswcloud-k8s-sa
       containers:
         - name: server
-          image: aoikazto/aswcloud-server:0.1.1
+          image: aoikazto/k8s-server:0.1.1
           ports:
-            - containerPort: 8088
-          env:
-            - name: MONGODB_SERVER
-              value: aswcloud-k8s-database-service.aswcloud.svc.cluster.local
-            - name: MONGODB_PORT
-              value: '27017'
-            - name: MONGODB_DATABASE
-              value: k8s
-            - name: MONGODB_ID
-              value: root
-            - name: MONGODB_PW
-              value: example
+            - containerPort: 8000

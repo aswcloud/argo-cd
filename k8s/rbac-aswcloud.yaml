@@ -1,0 +1,26 @@
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  name: aswcloud-k8s-sa
+---
+kind: ClusterRole # Role of kubernetes
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: aswcloud-k8s-clusterrole
+rules:
+  - apiGroups: [""] # rules on persistentvolumes
+    resources: ["persistentvolumes", "persistentvolumeclaims", "services", "deployments", "namespaces"]
+    verbs: ["get", "list", "watch", "create", "delete"]
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: aswcloud-k8s-rolebinding
+subjects:
+  - kind: ServiceAccount
+    name: aswcloud-k8s-sa
+    namespace: default
+roleRef: # binding cluster role to service account
+  kind: ClusterRole
+  name: aswcloud-k8s-clusterrole # name defined in clusterRole
+  apiGroup: rbac.authorization.k8s.io
