@@ -9,7 +9,7 @@ metadata:
   name: aswcloud-k8s-clusterrole
 rules:
   - apiGroups: [""] # rules on persistentvolumes
-    resources: ["persistentvolumes", "persistentvolumeclaims", "services", "deployments", "namespaces"]
+    resources: ["nodes", "persistentvolumes", "persistentvolumeclaims", "services", "deployments", "namespaces"]
     verbs: ["get", "list", "watch", "create", "delete"]
 ---
 kind: ClusterRoleBinding
