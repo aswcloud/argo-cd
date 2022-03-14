@@ -19,7 +19,7 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: aswcloud-k8s-sa
-    namespace: default
+    namespace: aswcloud
 roleRef: # binding cluster role to service account
   kind: ClusterRole
   name: aswcloud-k8s-clusterrole # name defined in clusterRole
