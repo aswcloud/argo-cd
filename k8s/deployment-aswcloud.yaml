@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aswcloud-k8s-deployment
+  labels:
+    app: aswcloud-k8s
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aswcloud-k8s
+  template:
+    metadata:
+      labels:
+        app: aswcloud-k8s
+    spec:
+      containers:
+        - name: server
+          image: aoikazto/k8s-server:1.1.2
+          ports:
+            - containerPort: 8088
+          env:
+            - name: MONGODB_SERVER
+              value: aswcloud-k8s-database-service.aswcloud.svc.cluster.local
+            - name: MONGODB_PORT
+              value: '27017'
+            - name: MONGODB_DATABASE
+              value: k8s
+            - name: MONGODB_ID
+              value: root
+            - name: MONGODB_PW
+              value: example
