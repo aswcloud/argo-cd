@@ -17,7 +17,7 @@ spec:
       serviceAccountName: aswcloud-k8s-sa
       containers:
         - name: server
-          image: aoikazto/k8s-server:0.1.8
+          image: aoikazto/k8s-server:0.1.9
           ports:
             - containerPort: 8000
           env:
