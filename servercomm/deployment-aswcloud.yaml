@@ -32,3 +32,6 @@ spec:
               value: root
             - name: MONGODB_PW
               value: example
+            - name: KUBERNETES_SERVER
+              value: aswcloud-k8s-service.aswcloud.svc.cluster.local
+            
