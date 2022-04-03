@@ -3,11 +3,9 @@ kind: Service
 metadata:
   name: aswcloud-k8s-service
 spec:
-  type: NodePort
   selector:
     app: aswcloud-k8s
   ports:
     - port: 8000
       targetPort: 8000
-      nodePort: 30600
       name: "grpc"
