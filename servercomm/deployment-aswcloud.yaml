@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: aoikazto/aswcloud-server:1.1.7
+          image: aoikazto/aswcloud-server:1.1.8
           ports:
             - containerPort: 8088
           env:
@@ -34,4 +34,3 @@ spec:
               value: example
             - name: KUBERNETES_SERVER
               value: aswcloud-k8s-service.aswcloud.svc.cluster.local
-            
