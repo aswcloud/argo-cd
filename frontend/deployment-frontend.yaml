@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aswcloud-frontend-deployment
+  labels:
+    app: aswcloud-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aswcloud-frontend
+  template:
+    metadata:
+      labels:
+        app: aswcloud-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: aoikazto/aswcloud-frontend:1.0.0
+        ports:
+        - containerPort: 80
