@@ -34,3 +34,9 @@ spec:
               value: example
             - name: KUBERNETES_SERVER
               value: aswcloud-k8s-service.aswcloud.svc.cluster.local:8000
+            - name: JWT_SECRET_KEY
+              value: EtAp8jnvSkFuwcVuEjZPIGiNBGydsaYM0mFiTi0bLCQq1ekyJGPGTygp41mdtwbleCVhExIOfJZ5rAVXvKlvNadw6EBOuIy2gbxFGV3AW3BcWAtjmD1qvyHvNRZp0j9D
+            - name: ADMIN_ID
+              value: aoikazto
+            - name: ADMIN_PASSWORD
+              value: aswcloud_aoikazto
