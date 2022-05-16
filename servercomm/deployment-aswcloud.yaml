@@ -40,3 +40,5 @@ spec:
               value: aoikazto
             - name: ADMIN_PASSWORD
               value: aswcloud_aoikazto
+            - name: GIN_MODE
+              value: release
